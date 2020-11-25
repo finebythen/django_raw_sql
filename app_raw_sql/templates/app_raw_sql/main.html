@@ -1,0 +1,46 @@
+{% extends 'app_raw_sql/base.html' %}
+
+{% block link %}{% endblock link %}
+
+{% block title %}Django | Raw SQL{% endblock title %}
+
+{% block style %}
+
+    .card { margin: 2rem 0; }
+    table { font-size: 0.8rem; }
+    h4 { margin: 1rem; }
+
+{% endblock style %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4>Standard Query</h4>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in standard_query %}
+                        <tr>
+                            <th scope="col">{{ item.id }}</th>
+                            <td>{{ item.first_name }}</td>
+                            <td>{{ item.last_name }}</td>
+                            <td>{{ item.age }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}{% endblock script %}
